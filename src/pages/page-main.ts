@@ -59,17 +59,13 @@ export class PageMain extends PageElement {
 	#renderCurrency(currency: CMC.MiniCurrency | null) {
 		return html`<!-- -->
 			<div class="flex flex-wrap gap-3 items-center justify-center">
-				<md-filled-tonal-button
-					href=${cmcUrl(currency?.slug ?? store.base!)}
-					target="_blank"
-				>
+				<md-filled-tonal-button href=${cmcUrl(currency?.slug ?? store.base!)}>
 					<md-icon slot="icon">${SVG_CMC}</md-icon>
 					<span>CoinMarketCap</span>
 				</md-filled-tonal-button>
 
 				<md-filled-button
 					href=${binanceUrl(currency?.symbol ?? store.base!, store.getQuote())}
-					target="_blank"
 				>
 					<md-icon slot="icon">${SVG_BINANCE}</md-icon>
 					<span>Binance</span>
@@ -77,7 +73,6 @@ export class PageMain extends PageElement {
 
 				<md-outlined-button
 					href="${googleUrl(`${currency?.name ?? store.base!} crypto`)}"
-					target="_blank"
 				>
 					<md-icon slot="icon">${SVG_GOOGLE}</md-icon>
 					<span>Search</span>
@@ -87,7 +82,6 @@ export class PageMain extends PageElement {
 					href=${chatGptUrl(
 						makeChatGPTRequest(store.chatGPTRequest, currency ?? store.base),
 					)}
-					target="_blank"
 				>
 					<md-icon slot="icon">${SVG_CHATGPT}</md-icon>
 					<span>Ask ChatGPT</span>
